@@ -1,0 +1,126 @@
+DROP TABLE IF EXISTS emp;
+
+CREATE TABLE emp (
+  empno decimal(4,0) NOT NULL,
+  ename varchar(10) default NULL,
+  job varchar(9) default NULL,
+  mgr decimal(4,0) default NULL,
+  hiredate date default NULL,
+  sal decimal(7,2) default NULL,
+  comm decimal(7,2) default NULL,
+  deptno decimal(2,0) default NULL
+);
+
+DROP TABLE IF EXISTS dept;
+
+CREATE TABLE dept (
+  deptno decimal(2,0) default NULL,
+  dname varchar(14) default NULL,
+  loc varchar(13) default NULL
+);
+
+INSERT INTO emp VALUES ('7369','SMITH','CLERK','7902','1980-12-17','800.00',NULL,'20');
+INSERT INTO emp VALUES ('7499','ALLEN','SALESMAN','7698','1981-02-20','1600.00','300.00','30');
+INSERT INTO emp VALUES ('7521','WARD','SALESMAN','7698','1981-02-22','1250.00','500.00','30');
+INSERT INTO emp VALUES ('7566','JONES','MANAGER','7839','1981-04-02','2975.00',NULL,'20');
+INSERT INTO emp VALUES ('7654','MARTIN','SALESMAN','7698','1981-09-28','1250.00','1400.00','30');
+INSERT INTO emp VALUES ('7698','BLAKE','MANAGER','7839','1981-05-01','2850.00',NULL,'30');
+INSERT INTO emp VALUES ('7782','CLARK','MANAGER','7839','1981-06-09','2450.00',NULL,'10');
+INSERT INTO emp VALUES ('7788','SCOTT','ANALYST','7566','1982-12-09','3000.00',NULL,'20');
+INSERT INTO emp VALUES ('7839','KING','PRESIDENT',NULL,'1981-11-17','5000.00',NULL,'10');
+INSERT INTO emp VALUES ('7844','TURNER','SALESMAN','7698','1981-09-08','1500.00','0.00','30');
+INSERT INTO emp VALUES ('7876','ADAMS','CLERK','7788','1983-01-12','1100.00',NULL,'20');
+INSERT INTO emp VALUES ('7900','JAMES','CLERK','7698','1981-12-03','950.00',NULL,'30');
+INSERT INTO emp VALUES ('7902','FORD','ANALYST','7566','1981-12-03','3000.00',NULL,'20');
+INSERT INTO emp VALUES ('7934','MILLER','CLERK','7782','1982-01-23','1300.00',NULL,'10');
+INSERT INTO emp (empno,ename,sal) VALUES ('7000','Nahim','2300');
+
+INSERT INTO dept VALUES ('10','ACCOUNTING','NEW YORK');
+INSERT INTO dept VALUES ('20','RESEARCH','DALLAS');
+INSERT INTO dept VALUES ('30','SALES','CHICAGO');
+INSERT INTO dept VALUES ('40','OPERATIONS','BOSTON');
+
+
+Assigment:
+-----------
+
+Group by functions:
+--------------------
+1. Display the maximum, minimum and average salary and commission earned.
+
+2. Display the department number, total salary payout and total commission payout for each department
+
+3. Display the department number, total salary payout and total commission payout for each department
+that pays at least one employee commission.
+
+4. Display the department number and number of clerks in each department.
+
+5. Display the department number and total salary of employees in each department that employs four
+or more people.
+
+6. Display the employee number of each employee who manages other employees with the number of
+people he or she manages.
+
+
+
+
+joins
+=======
+
+1. Display the name of each employee with his department name.
+
+2. Display a list of all departments with the employees 
+   in each department.
+
+3. Display all the departments with the manager for that department.
+
+4. Display the names of each employee with the name of his/her boss.
+
+5. Display the names of each employee with the name of his/her boss 
+   with a blank for the boss of the president.
+
+6. Display the employee number and name of each employee who manages 
+   other employees with the number of people he or she manages.
+
+7. Repeat the display for the last question, 
+   but this time display the rows in descending order of the
+   number of employees managed.
+
+
+order by:
+----------
+1. Arrange employee records in ascending order of their sal ?
+
+2. Arrange employee records in descending order of their sal ?
+
+3. Display employee records working for 10th dept and arrange the result in ascending order of their sal ?
+
+4. Arrange employee records in ascending of their deptno and with in dept arrange records in descending order of their sal ?
+
+5. In ORDER BY clause we can use column name or column position, for example
+
+	SELECT * FROM EMP ORDER BY 5 DESC ;
+
+6. Arrange employee records in descending order of their comm. if comm . 
+   Is null then arrange those records last ?
+
+
+like and isNull or null operator:
+--------------------------------
+1. Display employee records whose name ends with s ?
+
+2. Display employee records whose name doesn't contain s?
+
+3. Display employee records where A is the second char in the name?
+
+4. Display employee records who are joined in JAN month ?
+
+5. Display employee records who are joined in 1981 year ?
+
+6. Display employee records who are joined in 1st 9 days ?
+
+7. Display employee records who are earning 5 digit salary ?
+
+8. Display employee records whose comm IS NULL ?
+
+9. Display employee records whose comm IS NOT NULL ?
