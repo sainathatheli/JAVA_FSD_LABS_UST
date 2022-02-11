@@ -1,0 +1,110 @@
+
+Step 1:
+========
+
+Create a project named as Deparment-Service-Proj
+ and select dependencies (web,lombok,datajpa,eurekaclient)
+
+a)com.ust.model
+
+public class Department{
+ private Integer deptNo;
+ private String  deptName;         ---ORM with dept_tab
+ private String   deptLocation;
+
+
+}
+
+b)application.properties
+
+server.port=6900
+
+//Configure database details with hibernate orm
+driver-class ,url,username,password,dialect,show-sql,hbm2ddlauto
+
+
+c)com.ust.dao
+
+public interface DeparmentDaoImpl extends JpaRepository<Department,Integer>
+
+
+
+d)com.ust.service --required
+
+e) com.ust.controller
+   
+@RestController   
+public class DeparmentController{
+
+//define a method to insert department record into dept_tab table using post request(postmant)
+
+//define a method to get the department record based on deptno.
+
+
+}
+ 
+   
+Employee:    
+----------
+Create a project named as Employee-Service-Proj
+ and select dependencies (web,lombok,datajpa,eurekaclient)
+
+a)com.ust.model   
+
+public class Employee{
+ private Integer empId;
+ private String  empName;
+ private  float  empSal;      ---ORM with emp_tab
+ private  Integer deptNo;
+
+}
+
+b)application.properties
+
+server.port=6900
+
+//Configure database details with hibernate orm
+driver-class ,url,username,password,dialect,show-sql,hbm2ddlauto
+
+
+c)com.ust.dao
+
+public interface EmployeeDaoImpl extends JpaRepository<Employee,Integer>
+
+
+
+d)com.ust.service --required
+
+e) com.ust.controller
+   
+@RestController   
+public class EmployeeController{
+
+//define a method to insert employee record into emp_tab table using post request(postman)
+
+//define a method to get the employee record(employee details ) and department record (department) based on empId.
+   note:- using resttempate consume the departmentservice to get deparment details in employee service project
+
+}
+ 
+
+
+Step2:
+------
+Regitser and Discover the DeparmentService and EmployeeService in EurekaServer
+
+step3:
+------
+Configure the EmployeeService and DeparmentService in CloudAPIGATWAY
+
+using postman APi to request insert the record into emp_tab and dept_tab;
+
+step4:
+-----
+Add the ConfigServer,config cilent  depencependy to read the url,driverclassname,uname from external source(github).
+
+
+Note:
+------
+any additional classess required ,dependecy add it..
+
