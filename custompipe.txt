@@ -1,0 +1,75 @@
+ custom pipe
+ ===========
+ step:1
+ 
+ create  a class which implements PipeTranform
+
+ step 2:
+ 
+   provide the implementation for function named as transform()
+
+ step 3:
+
+ declare pipe decorator on top of  class 
+
+  e.g:
+  
+   @Pipe({
+        name:'pipename'       ---to use the custom pipe
+     })
+   export class classname{
+
+       transform(){
+        //business logic
+     }
+   }
+
+  step 4:
+  =======
+    to globally available for pipe we need to declare pipe class in 
+   declarations array in app.module.ts  and import class from ts file using import keyword
+
+  step 5:
+  ========
+  use custom pipe in any component 
+
+  Example:
+   ======
+   1) create a custom pipe which return square root of a number
+
+     a) create a ts file named as customPipe.ts
+
+        import {Pipe,PipeTransform } from '@angualr/core'
+       
+       @Pipe({
+            name:'mySqrt'
+       })
+       export class ExampleOnCustomPipe implements PipeTransform{
+
+
+         tranform(num:number):number{
+
+              return Math.sqrt(num);
+         }
+ 
+        }
+
+
+   b)declare the class in declaration array in app.module.ts and import the ts file name
+
+   c) square root of number is : {{25|mySqrt}}    o/p:-5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
